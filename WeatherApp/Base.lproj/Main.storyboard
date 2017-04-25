@@ -163,6 +163,14 @@
                             <constraint firstItem="IwB-Oi-a26" firstAttribute="top" secondItem="tZz-Mv-iCS" secondAttribute="bottom" id="jbw-No-1Jq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTempImage" destination="8HO-5Z-1LZ" id="5GD-vA-e6P"/>
+                        <outlet property="currentTempLabel" destination="4b5-ZZ-Dxf" id="tcr-XE-9dn"/>
+                        <outlet property="currentTempTypeLabel" destination="70u-tf-sBN" id="64d-t1-Vnd"/>
+                        <outlet property="dateLabel" destination="ysy-oc-Wzp" id="S5P-Yy-fBf"/>
+                        <outlet property="locationLabel" destination="nHC-rV-eXa" id="leI-Dg-iLp"/>
+                        <outlet property="tableView" destination="IwB-Oi-a26" id="yAc-S6-Q1y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
