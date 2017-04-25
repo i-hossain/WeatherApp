@@ -78,14 +78,38 @@
 		EC1300DC1EAE744F00400128 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				ECA09B5A1EAF688D001D7B98 /* Model */,
+				ECA09B581EAF686B001D7B98 /* View */,
+				ECA09B591EAF687D001D7B98 /* Controller */,
 				EC1300DD1EAE744F00400128 /* AppDelegate.swift */,
-				EC1300DF1EAE744F00400128 /* WeatherVC.swift */,
 				EC1300E11EAE744F00400128 /* Main.storyboard */,
 				EC1300E41EAE744F00400128 /* Assets.xcassets */,
 				EC1300E61EAE744F00400128 /* LaunchScreen.storyboard */,
 				EC1300E91EAE744F00400128 /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		ECA09B581EAF686B001D7B98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		ECA09B591EAF687D001D7B98 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EC1300DF1EAE744F00400128 /* WeatherVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		ECA09B5A1EAF688D001D7B98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
