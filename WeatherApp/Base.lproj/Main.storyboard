@@ -92,8 +92,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8mV-Ce-86y">
-                                                    <rect key="frame" x="16" y="15" width="50" height="49.5"/>
+                                                    <rect key="frame" x="16" y="15" width="50" height="50"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="ieA-9W-hfO"/>
                                                         <constraint firstAttribute="width" constant="50" id="jSQ-iu-AdL"/>
                                                     </constraints>
                                                 </imageView>
