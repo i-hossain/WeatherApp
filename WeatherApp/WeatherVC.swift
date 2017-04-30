@@ -26,7 +26,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         currentWeather.downloadData {
-            // Assign model data to view
+            self.updateCarousel()
         }
         
     }
@@ -46,6 +46,14 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func updateCarousel() {
+        dateLabel.text = currentWeather.date
+        locationLabel.text = currentWeather.city
+        currentTempLabel.text = "\(currentWeather.temperature)°"
+        currentTempTypeLabel.text = currentWeather.weatherType
+        currentTempImage.image = UIImage(named: currentWeather.weatherType)
     }
 
 }
