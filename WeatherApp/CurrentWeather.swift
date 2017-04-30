@@ -26,12 +26,6 @@ class CurrentWeather {
         if _date == nil {
             _date = ""
         }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .none
-        let currentDate = dateFormatter.string(from: Date())
-        self._date = currentDate
         return _date
     }
     
@@ -47,6 +41,14 @@ class CurrentWeather {
             _currentTemperature = 0.0
         }
         return _currentTemperature
+    }
+    
+    init() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        let currentDate = dateFormatter.string(from: Date())
+        _date = "Today, \(currentDate)"
     }
     
     func downloadData(completed: DownloadComplete) {
@@ -74,5 +76,6 @@ class CurrentWeather {
             }
         }
         completed()
+
     }
 }
