@@ -51,7 +51,7 @@ class CurrentWeather {
         _date = "Today, \(currentDate)"
     }
     
-    func downloadData(completed: @escaping DownloadComplete) {
+    func downloadCurrentWeatherData(completed: @escaping DownloadComplete) {
         Alamofire.request(CURRENT_WEATHER_URL).responseJSON { response in
             let result = response.result
             

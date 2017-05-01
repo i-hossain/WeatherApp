@@ -18,6 +18,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var currentWeather = CurrentWeather()
+    var forecast = Forecast()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        currentWeather.downloadData {
+        currentWeather.downloadCurrentWeatherData {
             self.updateCarousel()
+        }
+        
+        forecast.downloadForecastData {
+            // Code to update tableview
         }
         
     }
