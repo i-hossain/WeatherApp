@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92596CA61EB93AC7006C6197 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92596CA51EB93AC7006C6197 /* WeatherCell.swift */; };
 		A1327B2C322A83CD1B71DC9A /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F7C2C9507FF3A7E62ED57C /* Pods_WeatherApp.framework */; };
 		EC1300DE1EAE744F00400128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1300DD1EAE744F00400128 /* AppDelegate.swift */; };
 		EC1300E01EAE744F00400128 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1300DF1EAE744F00400128 /* WeatherVC.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		810414817D815B8D840FB26F /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		92596CA51EB93AC7006C6197 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		C0F7C2C9507FF3A7E62ED57C /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62DD77BCDF1CE67190C5ACB /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EC1300DA1EAE744F00400128 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 		ECA09B581EAF686B001D7B98 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92596CA51EB93AC7006C6197 /* WeatherCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				EC1300E01EAE744F00400128 /* WeatherVC.swift in Sources */,
 				EC1300DE1EAE744F00400128 /* AppDelegate.swift in Sources */,
+				92596CA61EB93AC7006C6197 /* WeatherCell.swift in Sources */,
 				EC774D6F1EB58B5700353063 /* CurrentWeather.swift in Sources */,
 				EC774D6D1EB5875900353063 /* Constants.swift in Sources */,
 				ECB906CA1EB7A96100EB13FD /* Forecast.swift in Sources */,

@@ -49,13 +49,13 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kiY-UE-jRD">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kiY-UE-jRD">
                                         <rect key="frame" x="215" y="100" width="140" height="180"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8HO-5Z-1LZ">
-                                                <rect key="frame" x="10" y="0.0" width="120" height="120"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8HO-5Z-1LZ">
+                                                <rect key="frame" x="25" y="0.0" width="90" height="90"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="8HO-5Z-1LZ" secondAttribute="height" multiplier="1:1" id="B7G-U4-I5D"/>
+                                                    <constraint firstAttribute="width" secondItem="8HO-5Z-1LZ" secondAttribute="height" multiplier="1:1" id="FgE-y5-lc3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70u-tf-sBN">
@@ -85,14 +85,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="Y5k-mY-w0b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="Y5k-mY-w0b" customClass="WeatherCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y5k-mY-w0b" id="NE8-c0-hef">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8mV-Ce-86y">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8mV-Ce-86y">
                                                     <rect key="frame" x="22" y="15.5" width="48.5" height="48.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="8mV-Ce-86y" secondAttribute="height" multiplier="1:1" id="hRb-Nc-vA4"/>
@@ -140,14 +140,23 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.88235294117647056" green="0.88235294117647056" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8mV-Ce-86y" secondAttribute="bottom" constant="7.5" id="9w5-tc-PHr"/>
                                                 <constraint firstItem="8mV-Ce-86y" firstAttribute="leading" secondItem="NE8-c0-hef" secondAttribute="leadingMargin" constant="14" id="CtZ-Wc-Zcp"/>
                                                 <constraint firstItem="8mV-Ce-86y" firstAttribute="top" secondItem="NoF-tR-lu8" secondAttribute="top" id="N4I-gt-Vs5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NoF-tR-lu8" secondAttribute="trailing" constant="14" id="NUb-7x-DCd"/>
                                                 <constraint firstItem="NoF-tR-lu8" firstAttribute="leading" secondItem="8mV-Ce-86y" secondAttribute="trailing" constant="10" id="Ob5-Hh-YiN"/>
                                                 <constraint firstItem="8mV-Ce-86y" firstAttribute="centerY" secondItem="NE8-c0-hef" secondAttribute="centerY" id="SQd-9b-oh1"/>
+                                                <constraint firstItem="8mV-Ce-86y" firstAttribute="top" secondItem="NE8-c0-hef" secondAttribute="topMargin" constant="7.5" id="bxH-iC-R8G"/>
                                                 <constraint firstItem="8mV-Ce-86y" firstAttribute="centerY" secondItem="NoF-tR-lu8" secondAttribute="centerY" id="kep-X6-98t"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="forecastDayLabel" destination="7AX-Wt-Bry" id="fyQ-Fg-G90"/>
+                                            <outlet property="forecastTypeLabel" destination="UF9-Ht-Sio" id="m7O-7P-UHt"/>
+                                            <outlet property="hightTempLabel" destination="uBP-Rq-5dy" id="Lbh-iK-rca"/>
+                                            <outlet property="lowTempLabel" destination="PEY-Ym-oei" id="uBM-zF-Zfj"/>
+                                            <outlet property="weatherImage" destination="8mV-Ce-86y" id="gNY-Z5-ByG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
