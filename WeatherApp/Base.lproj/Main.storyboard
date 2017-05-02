@@ -59,7 +59,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70u-tf-sBN">
-                                                <rect key="frame" x="47.5" y="155" width="45" height="25"/>
+                                                <rect key="frame" x="47.5" y="132.5" width="45" height="47.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -72,6 +72,7 @@
                                 <constraints>
                                     <constraint firstItem="kiY-UE-jRD" firstAttribute="top" secondItem="tZz-Mv-iCS" secondAttribute="top" constant="100" id="5Ta-f2-o6p"/>
                                     <constraint firstItem="kiY-UE-jRD" firstAttribute="leading" secondItem="dqB-k5-mxl" secondAttribute="trailing" constant="20" id="8rh-xI-MX4"/>
+                                    <constraint firstItem="nHC-rV-eXa" firstAttribute="centerY" secondItem="70u-tf-sBN" secondAttribute="centerY" id="HTM-EC-j0b"/>
                                     <constraint firstAttribute="bottom" secondItem="kiY-UE-jRD" secondAttribute="bottom" constant="20" id="Mil-5e-JqU"/>
                                     <constraint firstAttribute="bottom" secondItem="dqB-k5-mxl" secondAttribute="bottom" constant="20" id="NSr-vF-GC3"/>
                                     <constraint firstItem="dqB-k5-mxl" firstAttribute="leading" secondItem="tZz-Mv-iCS" secondAttribute="leading" constant="20" id="TIS-se-sI7"/>
