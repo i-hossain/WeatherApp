@@ -24,7 +24,6 @@ class WeatherCell: UITableViewCell {
         forecastTypeLabel.text = forecast.weatherType
         hightTempLabel.text = "\(forecast.highTemp)°"
         lowTempLabel.text = "\(forecast.lowTemp)°"
-        
     }
 
 }

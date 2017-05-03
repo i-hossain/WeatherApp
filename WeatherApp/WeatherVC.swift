@@ -65,12 +65,14 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             let result = response.result
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
+                
                 if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
                     
                     for obj in list {
                         let forecast = Forecast(listObject: obj)
                         self.forecasts.append(forecast)
                     }
+                    
                     self.forecasts.remove(at: 0) // Remove first object as you don't want the current day under forecast
                     self.tableView.reloadData()
                 }
