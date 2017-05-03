@@ -17,12 +17,13 @@ let APP_ID = "&appid="
 let API_KEY = "65d8d1c76dbc9eef77ade9e2fb00ac2a"
 
 let kelvinToCelcius = -273.15
-let cityLatitutde = "43.700111"
-let cityLongitude = "-79.416298"
+let cityLatitutde = "24.774265"//"43.700111"
+let cityLongitude = "46.738586"//"-79.416298"
 
 
 typealias DownloadComplete = () -> ()
 
-let CURRENT_WEATHER_URL = "\(BASE_URL)\(CURRENT_CODE)\(LATITUDE)\(cityLatitutde)\(LONGITUDE)\(cityLongitude)\(APP_ID)\(API_KEY)"
-let FORECAST_URL = "\(BASE_URL)\(FORECAST_CODE)\(LATITUDE)43.700111\(LONGITUDE)-79.416298\(APP_ID)\(API_KEY)"
+let CURRENT_WEATHER_URL = "\(BASE_URL)\(CURRENT_CODE)\(LATITUDE)\(Location.sharedInstance.latitude!)\(LONGITUDE)\(Location.sharedInstance.longitude!)\(APP_ID)\(API_KEY)"
+let FORECAST_URL = "\(BASE_URL)\(FORECAST_CODE)\(LATITUDE)\(Location.sharedInstance.latitude!)\(LONGITUDE)\(Location.sharedInstance.longitude!)\(APP_ID)\(API_KEY)"
+
 
