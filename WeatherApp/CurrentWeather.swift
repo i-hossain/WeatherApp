@@ -10,17 +10,14 @@ import UIKit
 import Alamofire
 
 class CurrentWeather {
-    private var _city: String!
+//    private var _city: String!
     private var _date: String!
     private var _weatherType: String!
     private var _currentTemperature: Double!
     
-    var city: String {
-        if _city == nil {
-            _city = ""
-        }
-     return _city
-    }
+    internal private(set) var city: String = ""
+    
+    
     
     var date: String {
         if _date == nil {
@@ -51,31 +48,36 @@ class CurrentWeather {
         _date = "Today, \(currentDate)"
     }
     
-    func downloadCurrentWeatherData(completed: @escaping DownloadComplete) {
+    convenience init(dict: Dictionary<String, AnyObject>) {
+        self.init()
+        
+        if let name = dict["name"] as? String {
+            self.city = name
+        }
+        
+        if let weather = dict["weather"] as? [Dictionary<String, AnyObject>] {
+            if let main = weather[0]["main"] as? String {
+                self._weatherType = main
+            }
+        }
+        
+        if let main = dict["main"] as? Dictionary<String, AnyObject> {
+            if let temp = main["temp"] as? Double {
+                let tempCelcius = temp + kelvinToCelcius
+                self._currentTemperature = Double(round(tempCelcius*10)/10)
+            }
+        }
+    }
+    
+    class func downloadCurrentWeatherData(completed: @escaping (CurrentWeather)->()) {
         Alamofire.request(CURRENT_WEATHER_URL).responseJSON { response in
             let result = response.result
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
-                if let name = dict["name"] as? String {
-                    self._city = name
-                }
-                
-                if let weather = dict["weather"] as? [Dictionary<String, AnyObject>] {
-                    if let main = weather[0]["main"] as? String {
-                        self._weatherType = main
-                    }
-                }
-                
-                if let main = dict["main"] as? Dictionary<String, AnyObject> {
-                    if let temp = main["temp"] as? Double {
-                        let tempCelcius = temp + kelvinToCelcius
-                        self._currentTemperature = Double(round(tempCelcius*10)/10)
-                    }
-                }
-                
+                let currentWeather = CurrentWeather(dict: dict)
+                completed(currentWeather)
             }
-            completed()
         }
         
     }

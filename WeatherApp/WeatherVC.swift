@@ -22,11 +22,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
     
-    var currentWeather = CurrentWeather()
     var forecasts = [Forecast]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateCurrentWeather(currentWeather: nil)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,6 +42,10 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         self.locationAuthStatus()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func locationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             
@@ -48,10 +53,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             Location.sharedInstance.latitude = currentLocation.coordinate.latitude
             Location.sharedInstance.longitude = currentLocation.coordinate.longitude
             
-            currentWeather.downloadCurrentWeatherData {
-                self.downloadForecastData {
-                    self.updateCurrentWeather()
-                }
+            CurrentWeather.downloadCurrentWeatherData { currentWeather in
+                self.updateCurrentWeather(currentWeather: currentWeather)
+            }
+            WeatherVC.downloadForecastData { forecasts in
+                self.forecasts = forecasts
+                self.tableView.reloadData()
             }
         }
         else {
@@ -60,7 +67,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         }
     }
     
-    func downloadForecastData(completed: @escaping DownloadComplete) {
+    class func downloadForecastData(completed: @escaping ([Forecast]) -> ()) {
         Alamofire.request(FORECAST_URL).responseJSON() { response in
             let result = response.result
             
@@ -68,16 +75,17 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
                 
                 if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
                     
+                    var forecasts = [Forecast]()
+                    
                     for obj in list {
                         let forecast = Forecast(listObject: obj)
-                        self.forecasts.append(forecast)
+                        forecasts.append(forecast)
                     }
                     
-                    self.forecasts.remove(at: 0) // Remove first object as you don't want the current day under forecast
-                    self.tableView.reloadData()
+                    forecasts.remove(at: 0) // Remove first object as you don't want the current day under forecast
+                    completed(forecasts)
                 }
             }
-            completed()
         }
     }
     
@@ -106,13 +114,21 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         return 80
     }
     
-    func updateCurrentWeather() {
+    func updateCurrentWeather(currentWeather: CurrentWeather?) {
         
-        dateLabel.text = currentWeather.date
-        locationLabel.text = currentWeather.city
-        currentTempLabel.text = "\(currentWeather.temperature)°"
-        currentTempTypeLabel.text = currentWeather.weatherType
-        currentTempImage.image = UIImage(named: currentWeather.weatherType)
+        dateLabel.text = currentWeather?.date
+        locationLabel.text = currentWeather?.city
+        currentTempTypeLabel.text = currentWeather?.weatherType
+        
+        if let currentWeather = currentWeather {
+            currentTempLabel.text = "\(currentWeather.temperature)°"
+            currentTempImage.image = UIImage(named: currentWeather.weatherType)
+        }
+        else {
+            currentTempLabel.text = " "
+            currentTempImage.image = nil
+        }
+        
     }
 
 }
